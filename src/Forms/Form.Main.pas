@@ -90,6 +90,7 @@ begin
   if not Assigned( frmPessoa  ) then
   begin
     frmPessoa := TfrmPessoa.Create(self);
+    FrmPessoa.Caption := 'Nova Pessoa';
     frmPessoa.ShowModal;
   end;
 

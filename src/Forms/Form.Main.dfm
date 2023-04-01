@@ -296,7 +296,7 @@ object FrmMain: TFrmMain
       Height = 54
       Cursor = crHandPoint
       Align = alLeft
-      Caption = 'Novo'
+      Caption = '&Novo'
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF

@@ -5,7 +5,10 @@ uses
   Form.Main in 'Forms\Form.Main.pas' {FrmMain},
   Form.Login in 'Forms\Form.Login.pas' {FrmLogin},
   Storage.dm in 'Storage\Storage.dm.pas' {dm: TDataModule},
-  Form.Pessoa in 'Forms\Form.Pessoa.pas' {FrmPessoa};
+  Form.Pessoa in 'Forms\Form.Pessoa.pas' {FrmPessoa},
+  Dtos in 'Dtos.pas',
+  Http in 'Http.pas',
+  djson in 'djson.pas';
 
 {$R *.res}
 
