@@ -79,58 +79,76 @@ begin
     procedure
     begin
 
-      TThread.Synchronize(TThread.CurrentThread,
-      procedure
-      begin
-        dxWait.Parent  := Self.BtnCep;
-        dxWait.Align   := TAlign.alClient;
-        dxWait.Active  := True;
-        dxWait.Visible := True;
-      end);
-
-      LCep := TCep.Get( Self.EditCep.Text );
-
-      if ( LCep.StatusCode = 200 ) then
-      begin
+      try
         TThread.Synchronize(TThread.CurrentThread,
         procedure
         begin
-          Self.EditLogradouro.Text  := LCep.Logradouro;
-          Self.EditComplemento.Text := LCep.Complemento;
-          Self.EditBairro.Text      := LCep.Bairro;
-          Self.EditMunicipio.Text   := LCep.Municipio;
-          Self.EditUF.Text          := LCep.UF;
+          dxWait.Parent  := Self.BtnCep;
+          dxWait.Align   := TAlign.alClient;
+          dxWait.Active  := True;
+          dxWait.Visible := True;
         end);
-      end else
-      begin
+
+        LCep := TCep.Get( Self.EditCep.Text );
+
+        if ( LCep.StatusCode = 200 ) then
+        begin
+          TThread.Synchronize(TThread.CurrentThread,
+          procedure
+          begin
+            if LCep.Msg <> EmptyStr then
+            begin
+              MessageDlg('Falha de processamento interno - StatusCode: ' + LCep.StatusCode.ToString + #13+#10+#13+#10 +
+              LCep.Msg, mtError, [mbOK], 0, mbOK );
+            end;
+
+            Self.EditLogradouro.Text  := LCep.Logradouro;
+            Self.EditComplemento.Text := LCep.Complemento;
+            Self.EditBairro.Text      := LCep.Bairro;
+            Self.EditMunicipio.Text   := LCep.Municipio;
+            Self.EditUF.Text          := LCep.UF;
+          end);
+        end else
+        begin
+
+          TThread.Synchronize(TThread.CurrentThread,
+          procedure
+          begin
+            dxWait.Align   := TAlign.alNone;
+            dxWait.Parent  := Self;
+            dxWait.Active  := False;
+            dxWait.Visible := False;
+          end);
+
+          TThread.Synchronize(TThread.CurrentThread,
+          procedure
+          begin
+            MessageDlg('HTTP '+LCep.StatusCode.ToString+ LCep.Msg, mtError, [mbOK], 0, mbOK );
+          end);
+
+        end;
 
         TThread.Synchronize(TThread.CurrentThread,
         procedure
         begin
           dxWait.Align   := TAlign.alNone;
           dxWait.Parent  := Self;
-          dxWait.Active  := False;
+          dxWait.Active := False;
           dxWait.Visible := False;
+          Self.EditLogradouro.SetFocus;
         end);
 
-        TThread.Synchronize(TThread.CurrentThread,
-        procedure
+      except
+        On E: Exception do
         begin
-          MessageDlg('HTTP '+LCep.StatusCode.ToString+ LCep.Msg, mtError, [mbOK], 0, mbOK );
-          Exit;
-        end);
-
+          TThread.Synchronize(TThread.CurrentThread,
+          procedure
+          begin
+            MessageDlg('HTTP '+E.Message+ LCep.StatusCode.ToString, mtError, [mbOK], 0, mbOK );
+            Exit;
+          end);
+        end;
       end;
-
-      TThread.Synchronize(TThread.CurrentThread,
-      procedure
-      begin
-        dxWait.Align   := TAlign.alNone;
-        dxWait.Parent  := Self;
-        dxWait.Active := False;
-        dxWait.Visible := False;
-        Self.EditLogradouro.SetFocus;
-      end);
 
     end).start;
 
