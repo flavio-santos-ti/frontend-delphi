@@ -64,6 +64,8 @@ type
     BtnAlterar: TcxButton;
     Bevel5: TBevel;
     Bevel6: TBevel;
+    cxStyleRepository1: TcxStyleRepository;
+    cxStyle1: TcxStyle;
     procedure FormActivate(Sender: TObject);
     procedure BtnSairClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
@@ -108,7 +110,8 @@ procedure TFrmMain.DesabilitaTela;
 begin
 
   Self.GridPessoa.Visible := False;
-  FrmMain.dxRibbonStatusBar1.Panels[0].Text := ' Usuário: Nenhum';
+  Self.dxRibbonStatusBar1.Panels[0].Text := ' Usuário: Nenhum';
+  Self.dxRibbonStatusBar1.Panels[1].Text := EmptyStr;
 
   Self.BtnNovo.Enabled    := False;
   Self.BtnExcluir.Enabled := False;
@@ -139,7 +142,8 @@ begin
   Self.BtnSair.Enabled    := True;
 
   Self.GridPessoa.Visible := True;
-  FrmMain.dxRibbonStatusBar1.Panels[0].Text := ' Usuário: Flavio';
+  Self.dxRibbonStatusBar1.Panels[0].Text := ' Usuário: Flavio';
+  Self.dxRibbonStatusBar1.Panels[1].Text := ' ' + dm.fdmPessoa.RecordCount.ToString + ' registro(s)';
 
 end;
 

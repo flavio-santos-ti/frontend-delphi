@@ -58,6 +58,10 @@ object FrmMain: TFrmMain
     Panels = <
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        Width = 150
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
       end>
     LookAndFeel.Kind = lfUltraFlat
     LookAndFeel.SkinName = 'VisualStudio2013Blue'
@@ -73,10 +77,10 @@ object FrmMain: TFrmMain
     Width = 777
     Height = 337
     Align = alClient
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
     TabOrder = 2
@@ -102,6 +106,7 @@ object FrmMain: TFrmMain
       OptionsView.DataRowHeight = 25
       OptionsView.GroupByBox = False
       OptionsView.HeaderHeight = 25
+      Styles.Header = cxStyle1
       object cxViewId: TcxGridDBColumn
         DataBinding.FieldName = 'Id'
         PropertiesClassName = 'TcxLabelProperties'
@@ -115,7 +120,7 @@ object FrmMain: TFrmMain
       end
       object cxViewSobrenome: TcxGridDBColumn
         DataBinding.FieldName = 'Sobrenome'
-        Width = 180
+        Width = 220
       end
       object cxViewCep: TcxGridDBColumn
         DataBinding.FieldName = 'Cep'
@@ -126,24 +131,24 @@ object FrmMain: TFrmMain
       end
       object cxViewLogradouro: TcxGridDBColumn
         DataBinding.FieldName = 'Logradouro'
-        Width = 200
+        Width = 220
       end
       object cxViewNumero: TcxGridDBColumn
         DataBinding.FieldName = 'Numero'
-        Width = 60
+        Width = 80
       end
       object cxViewComplemento: TcxGridDBColumn
         DataBinding.FieldName = 'Complemento'
-        Width = 100
+        Width = 130
       end
       object cxViewBairro: TcxGridDBColumn
         DataBinding.FieldName = 'Bairro'
-        Width = 120
+        Width = 150
       end
       object cxViewMunicipio: TcxGridDBColumn
         Caption = 'Munic'#237'pio'
         DataBinding.FieldName = 'Municipio'
-        Width = 180
+        Width = 220
       end
       object cxViewUF: TcxGridDBColumn
         DataBinding.FieldName = 'UF'
@@ -159,7 +164,7 @@ object FrmMain: TFrmMain
         Properties.Alignment.Horz = taCenter
         Properties.DisplayFormat = 'dd/mm/yyyy hh:mm:ss'
         HeaderAlignmentHorz = taCenter
-        Width = 130
+        Width = 160
       end
       object cxViewDataAlteracao: TcxGridDBColumn
         Caption = #218'ltima altera'#231#227'o'
@@ -168,7 +173,7 @@ object FrmMain: TFrmMain
         Properties.Alignment.Horz = taCenter
         Properties.DisplayFormat = 'dd/mm/yyyy hh:mm:ss'
         HeaderAlignmentHorz = taCenter
-        Width = 130
+        Width = 160
       end
     end
     object GridPessoaLevel1: TcxGridLevel
@@ -248,7 +253,7 @@ object FrmMain: TFrmMain
       Height = 54
       Cursor = crHandPoint
       Align = alRight
-      Caption = 'Sair'
+      Caption = 'Sai&r'
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
@@ -496,5 +501,18 @@ object FrmMain: TFrmMain
     DataSet = dm.fdmPessoa
     Left = 440
     Top = 216
+  end
+  object cxStyleRepository1: TcxStyleRepository
+    Left = 384
+    Top = 24
+    PixelsPerInch = 96
+    object cxStyle1: TcxStyle
+      AssignedValues = [svFont]
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+    end
   end
 end

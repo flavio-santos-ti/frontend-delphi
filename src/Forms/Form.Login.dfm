@@ -103,7 +103,7 @@ object FrmLogin: TFrmLogin
       Height = 40
       Cursor = crHandPoint
       Anchors = [akTop, akRight]
-      Caption = 'Sair'
+      Caption = 'Sai&r'
       LookAndFeel.NativeStyle = False
       TabOrder = 1
       Font.Charset = DEFAULT_CHARSET
