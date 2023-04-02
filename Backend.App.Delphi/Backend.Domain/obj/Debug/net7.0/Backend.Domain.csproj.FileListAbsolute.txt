@@ -1,0 +1,12 @@
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\bin\Debug\net7.0\Backend.Domain.deps.json
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\bin\Debug\net7.0\Backend.Domain.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\bin\Debug\net7.0\Backend.Domain.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.csproj.AssemblyReference.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.AssemblyInfoInputs.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.AssemblyInfo.cs
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.csproj.CoreCompileInputs.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\refint\Backend.Domain.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\Backend.Domain.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Domain\obj\Debug\net7.0\ref\Backend.Domain.dll
