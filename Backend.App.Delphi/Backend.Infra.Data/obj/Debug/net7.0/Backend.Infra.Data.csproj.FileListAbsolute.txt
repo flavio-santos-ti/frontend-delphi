@@ -1,0 +1,15 @@
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\bin\Debug\net7.0\Backend.Infra.Data.deps.json
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\bin\Debug\net7.0\Backend.Infra.Data.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\bin\Debug\net7.0\Backend.Infra.Data.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\bin\Debug\net7.0\Backend.Domain.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\bin\Debug\net7.0\Backend.Domain.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.csproj.AssemblyReference.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.AssemblyInfoInputs.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.AssemblyInfo.cs
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.csproj.CoreCompileInputs.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.csproj.CopyComplete
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\refint\Backend.Infra.Data.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\Backend.Infra.Data.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Infra.Data\obj\Debug\net7.0\ref\Backend.Infra.Data.dll

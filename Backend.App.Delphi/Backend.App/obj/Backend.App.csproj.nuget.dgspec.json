@@ -31,6 +31,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Business\\Backend.Business.csproj": {
+                "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Business\\Backend.Business.csproj"
+              },
               "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj": {
                 "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj"
               }
@@ -87,6 +90,81 @@
         }
       }
     },
+    "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Business\\Backend.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Business\\Backend.Business.csproj",
+        "projectName": "Backend.Business",
+        "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Business\\Backend.Business.csproj",
+        "packagesPath": "C:\\Users\\Flavio\\.nuget\\packages\\",
+        "outputPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Flavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj": {
+                "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj"
+              },
+              "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Infra.Data\\Backend.Infra.Data.csproj": {
+                "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Infra.Data\\Backend.Infra.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -125,6 +203,92 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Infra.Data\\Backend.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Infra.Data\\Backend.Infra.Data.csproj",
+        "projectName": "Backend.Infra.Data",
+        "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Infra.Data\\Backend.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\Flavio\\.nuget\\packages\\",
+        "outputPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Infra.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Flavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj": {
+                "projectPath": "D:\\workarea\\github\\Delphi\\frontend-delphi\\Backend.App.Delphi\\Backend.Domain\\Backend.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

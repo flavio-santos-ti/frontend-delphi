@@ -1,0 +1,17 @@
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Business.deps.json
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Business.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Business.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Domain.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Infra.Data.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Domain.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\bin\Debug\net7.0\Backend.Infra.Data.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.csproj.AssemblyReference.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.AssemblyInfoInputs.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.AssemblyInfo.cs
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.csproj.CoreCompileInputs.cache
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.csproj.CopyComplete
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\refint\Backend.Business.dll
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\Backend.Business.pdb
+D:\workarea\github\Delphi\frontend-delphi\Backend.App.Delphi\Backend.Business\obj\Debug\net7.0\ref\Backend.Business.dll
