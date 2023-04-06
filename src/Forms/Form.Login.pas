@@ -4,6 +4,7 @@ interface
 
 uses
   Vcl.Dialogs,
+  Http,
 
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.StdCtrls, Vcl.ExtCtrls, cxGraphics,
@@ -47,7 +48,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Main;
+uses Form.Main, Storage.dm;
 
 procedure TFrmLogin.BtnSairClick(Sender: TObject);
 begin
@@ -72,6 +73,8 @@ begin
     Self.EditSenha.SetFocus;
     Exit;
   end;
+
+  Http.TPessoa.Get(dm.fdmPessoa);
 
   FrmMain.HabilitaTela;
 

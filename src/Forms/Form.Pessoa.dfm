@@ -27,8 +27,6 @@ object FrmPessoa: TFrmPessoa
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
     TabOrder = 10
-    ExplicitTop = 311
-    ExplicitWidth = 483
     DesignSize = (
       525
       51)
@@ -62,7 +60,6 @@ object FrmPessoa: TFrmPessoa
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 396
     end
     object BtnCancelar: TcxButton
       Left = 345
@@ -81,7 +78,6 @@ object FrmPessoa: TFrmPessoa
       Font.Style = []
       ParentFont = False
       OnClick = BtnCancelarClick
-      ExplicitLeft = 303
     end
   end
   object cxLabel1: TcxLabel

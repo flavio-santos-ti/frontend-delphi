@@ -12,7 +12,8 @@ uses
   dxSkinVisualStudio2013Blue, Vcl.Menus, cxMaskEdit, cxTextEdit, cxLabel,
   Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, cxGroupBox, System.ImageList,
   Vcl.ImgList, cxImageList, dxActivityIndicator, Vcl.WinXPanels,
-  dxLayoutContainer, cxClasses, dxLayoutControl;
+  dxLayoutContainer, cxClasses, dxLayoutControl
+  ;
 
 type
   TFrmPessoa = class(TForm)
