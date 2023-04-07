@@ -109,8 +109,10 @@ object FrmMain: TFrmMain
       Styles.Header = cxStyle1
       object cxViewId: TcxGridDBColumn
         DataBinding.FieldName = 'Id'
-        PropertiesClassName = 'TcxLabelProperties'
+        PropertiesClassName = 'TcxCurrencyEditProperties'
         Properties.Alignment.Horz = taCenter
+        Properties.DecimalPlaces = 0
+        Properties.DisplayFormat = '0000'
         HeaderAlignmentHorz = taCenter
         Width = 40
       end
@@ -188,6 +190,8 @@ object FrmMain: TFrmMain
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 3
+    ExplicitLeft = -48
+    ExplicitTop = 65
     object Bevel2: TBevel
       AlignWithMargins = True
       Left = 692
@@ -245,6 +249,17 @@ object FrmMain: TFrmMain
       Shape = bsBottomLine
       ExplicitTop = 31
       ExplicitWidth = 687
+    end
+    object Bevel7: TBevel
+      AlignWithMargins = True
+      Left = 364
+      Top = 3
+      Width = 2
+      Height = 48
+      Align = alLeft
+      Shape = bsLeftLine
+      ExplicitLeft = 375
+      ExplicitTop = 0
     end
     object BtnSair: TcxButton
       Left = 697
@@ -351,7 +366,7 @@ object FrmMain: TFrmMain
       Height = 54
       Cursor = crHandPoint
       Align = alLeft
-      Caption = 'Excluir'
+      Caption = '&Excluir'
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
@@ -385,6 +400,7 @@ object FrmMain: TFrmMain
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = BtnExcluirClick
     end
     object BtnAlterar: TcxButton
       Left = 193
@@ -393,7 +409,7 @@ object FrmMain: TFrmMain
       Height = 54
       Cursor = crHandPoint
       Align = alLeft
-      Caption = 'Alterar'
+      Caption = '&Alterar'
       OptionsImage.Glyph.SourceDPI = 96
       OptionsImage.Glyph.Data = {
         89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
@@ -433,6 +449,62 @@ object FrmMain: TFrmMain
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = BtnAlterarClick
+      ExplicitLeft = 209
+      ExplicitTop = -4
+    end
+    object BtnVisualizar: TcxButton
+      Left = 281
+      Top = 0
+      Width = 80
+      Height = 54
+      Cursor = crHandPoint
+      Align = alLeft
+      Caption = '&Visualizar'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+        610000000B744558745469746C65005A6F6F6D3BCF09FEBC0000031E49444154
+        785E5D927D4CD56514C73FBFBB2B17EE1616662F1AADC65896DAD28C6B5B618E
+        DDA5D692B5E9DD5A7FB8295191035B866EC4767B21B8542CF205AC01BA962F68
+        775C823285340B7053181B866E603559C9205E065C2FF7F77B9ED3EDD9AE7F74
+        B6EF39DB77E7F9EC9C3D071131FAE4CB9FA9AE3F0F60AD797A436AB0A67D4FC5
+        BE337D95FB3BE73FF8FCF4E5F7422D7B573C919B06584A0BFF0FCB085C2B57AF
+        4BFBB0F6F42FC7227D32F2F79468AD65E4AF493916E995B250EBAFD98FE67801
+        ABB5C0472421AAEABB3B43877AA42AA11F2F0C4953F345F9FADB4B3236794B42
+        4DBDF26AD959A93ED22BA31351693AD12345A50DEF036E11A1FDAD75B811D6EF
+        7ECD07806DDBD436FC4960F393D4370F90917117EF6C7F9C9AB621EA5B07D9E6
+        7F849E4B57B701155CA970B4D6B894D600CCC56CE6E33613535132167A191A99
+        66D58A4C3470C7D2A5FC7E739AF4742FB1F9F87D808B781CA504971241044CC2
+        22C52D8C8ECF90957927751D7FD0D81F47CDDCE4E1250B194BF873B3B3A300B7
+        015A09602058968BC7B217D376A69F573666939D3ECBE46037990B66D9FA5C16
+        27235D092FFA00E0B1D67E6C1980D61A1130B22CF2729733FECF04275BBAD8B8
+        EA1E42053E9E5FB998E6E69F98BAD1CFE67B2F53FDC2F29D40EA96C62ECBE528
+        4110348252E0F178D8B9DDCFFD8B526938FC0385C507A8FBAA05D7F8209BBC17
+        C979F6219EF13D18FCC8BF6C0F90E656CA4C008201D90A523CA9BCB4C9C78B1B
+        D6A01CC7ACE66887FEB0878EC877E4F9B37062B1F2902745B99280C2A25244C3
+        B973DD14BCF92E9DE77B10CBCD85EE3E8A7695F3DBE030BE400103DA476B7880
+        9CA7EE66515ACA6EF38D5A0B5A3482F0CDF153ECFFA292A3C7C3067CF444987D
+        B5951C3C7404F7020F4B720384CF0E070F1CBC624F45E3A7DC5A69B488195534
+        98894C5506A0940322C6570257AF4FD2786DAC866B639F02FFAD201880792004
+        B6E6B3E3F562025BF211D1A6EE282C31BE5670FDC634C07CF5FA653375F9ABA3
+        D61B656D52B5D79FBC8564248F0B536E7BC2DBC1EF39FCD9CB5E11B905E0B6ED
+        584749B03DCF348B8524DBCD5D88A94920088EED74020A13F02F6091C585D250
+        35850000000049454E44AE426082}
+      OptionsImage.Layout = blGlyphTop
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
+      SpeedButtonOptions.Transparent = True
+      TabOrder = 4
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = BtnVisualizarClick
+      ExplicitLeft = 385
+      ExplicitTop = -4
     end
   end
   object dxSkinController1: TdxSkinController
@@ -499,6 +571,7 @@ object FrmMain: TFrmMain
   end
   object DataSource1: TDataSource
     DataSet = dm.fdmPessoa
+    OnDataChange = DataSource1DataChange
     Left = 440
     Top = 216
   end

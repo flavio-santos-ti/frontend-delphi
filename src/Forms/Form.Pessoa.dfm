@@ -16,8 +16,10 @@ object FrmPessoa: TFrmPessoa
   OldCreateOrder = False
   Position = poOwnerFormCenter
   OnActivate = FormActivate
+  OnClose = FormClose
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object cxGroupBox1: TcxGroupBox

@@ -48,7 +48,7 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Main, Storage.dm;
+uses Form.Main, Storage;
 
 procedure TFrmLogin.BtnSairClick(Sender: TObject);
 begin

@@ -111,7 +111,7 @@
             <Form>FrmLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Storage\Storage.dm.pas">
+        <DCCReference Include="Storage\Storage.pas">
             <Form>dm</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
@@ -120,9 +120,10 @@
             <Form>FrmPessoa</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Dtos.pas"/>
+        <DCCReference Include="Models.pas"/>
         <DCCReference Include="Http.pas"/>
         <DCCReference Include="djson.pas"/>
+        <DCCReference Include="Vcl.Consts.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

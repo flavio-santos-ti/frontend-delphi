@@ -4,7 +4,7 @@ interface
 
 uses
   Http,
-  Dtos,
+  Models,
 
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
@@ -48,10 +48,13 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure EditCepKeyPress(Sender: TObject; var Key: Char);
     procedure BtnCepClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction );
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    Operacao : TOperacao;
   end;
 
 var
@@ -60,6 +63,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Storage, Form.Main;
 
 procedure TFrmPessoa.BtnCancelarClick(Sender: TObject);
 begin
@@ -70,7 +75,7 @@ end;
 
 procedure TFrmPessoa.BtnCepClick(Sender: TObject);
 var
-  LCep : TCepDto;
+  LCep : TCepModel;
 begin
 
   if ( Trim( Self.EditCep.Text ) <> EmptyStr ) then
@@ -158,9 +163,66 @@ begin
 end;
 
 procedure TFrmPessoa.BtnSalvarClick(Sender: TObject);
+var
+  LPessoaCreate : TPessoaRequestCreateModel;
+  LPessoaUpdate : TPessoaRequestUpdateModel;
+  LMsgErro : String;
 begin
 
+  if ( Self.Operacao = Http.Post ) then
+  begin
+    with LPessoaCreate do
+    begin
+      Nome        := Self.EditNome.Text;
+      Sobrenome   := Self.EditSobrenome.Text;
+      Cep         := Self.EditCep.Text;
+      Logradouro  := Self.EditLogradouro.Text;
+      Numero      := Self.EditNumero.Text;
+      Complemento := Self.EditComplemento.Text;
+      Bairro      := Self.EditBairro.Text;
+      Municipio   := Self.EditMunicipio.Text;
+      UF          := Self.EditUF.Text;
+    end;
+
+    LMsgErro := Http.TPessoa.Post( LPessoaCreate, dm.fdmPessoa );
+
+    if ( LMsgErro <> EmptyStr ) then
+    begin
+      MessageDlg('Falha de processamento interno - StatusCode: ' + LMsgErro
+      , mtError, [mbOK], 0, mbOK );
+      Exit;
+    end;
+  end else
+  if ( Self.Operacao = Http.Put ) then
+  begin
+    with LPessoaUpdate do
+    begin
+      Id          := dm.fdmPessoa.FieldByName('Id').AsLargeInt;
+      Nome        := Self.EditNome.Text;
+      Sobrenome   := Self.EditSobrenome.Text;
+      Cep         := Self.EditCep.Text;
+      Logradouro  := Self.EditLogradouro.Text;
+      Numero      := Self.EditNumero.Text;
+      Complemento := Self.EditComplemento.Text;
+      Bairro      := Self.EditBairro.Text;
+      Municipio   := Self.EditMunicipio.Text;
+      UF          := Self.EditUF.Text;
+    end;
+
+    LMsgErro := Http.TPessoa.Put( LPessoaUpdate, dm.fdmPessoa );
+
+    if ( LMsgErro <> EmptyStr ) then
+    begin
+      MessageDlg('Falha de processamento interno - StatusCode: ' + LMsgErro
+      , mtError, [mbOK], 0, mbOK );
+      Exit;
+    end;
+  end;
+
+  FrmMain.HabilitaTela;
+
   Close;
+
 end;
 
 
@@ -187,7 +249,16 @@ end;
 procedure TFrmPessoa.FormActivate(Sender: TObject);
 begin
 
-  Self.EditNome.SetFocus;
+  if Self.Operacao <> Http.Get then
+    Self.EditNome.SetFocus;
+
+end;
+
+procedure TFrmPessoa.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+
+  Action := caFree;
+  FrmPessoa := Nil;
 
 end;
 
@@ -230,5 +301,53 @@ begin
 
 end;
 
+
+procedure TFrmPessoa.FormShow(Sender: TObject);
+var
+  i : Integer;
+begin
+
+  for i := 0 to ComponentCount -1 do
+  begin
+
+    if Self.Operacao = Http.Get then
+    begin
+      if Components[i] is TcxTextEdit then
+        TcxTextEdit(Components[i]).Properties.ReadOnly := True;
+    end;
+
+  end;
+
+  if Self.Operacao = Http.Get then
+  begin
+    Self.BtnCep.Enabled := False;
+    Self.BtnCancelar.Visible := False;
+    Self.BtnSalvar.Caption := 'Ok';
+  end else
+  begin
+    Self.BtnCep.Enabled := True;
+    Self.BtnCancelar.Visible := True;
+    Self.BtnSalvar.Caption := 'Salvar';
+  end;
+
+  if Self.Operacao <> Http.Post then
+  begin
+
+    with dm.fdmPessoa do
+    begin
+      Self.EditNome.Text        := FieldByName('Nome').AsString;
+      Self.EditSobrenome.Text   := FieldByName('Sobrenome').AsString;
+      Self.EditCep.Text         := FieldByName('Cep').AsString;
+      Self.EditLogradouro.Text  := FieldByName('Logradouro').AsString;
+      Self.EditNumero.Text      := FieldByName('Numero').AsString;
+      Self.EditComplemento.Text := FieldByName('Complemento').AsString;
+      Self.EditBairro.Text      := FieldByName('Bairro').AsString;
+      Self.EditMunicipio.Text   := FieldByName('Municipio').AsString;
+      Self.EditUF.Text          := FieldByName('UF').AsString;
+    end;
+
+  end;
+
+end;
 
 end.

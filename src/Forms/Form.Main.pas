@@ -3,9 +3,11 @@ unit Form.Main;
 interface
 
 uses
+  Vcl.Dialogs,
+  Http,
 
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.WinXPanels,
+  Vcl.Controls, Vcl.Forms, Vcl.ExtCtrls, Vcl.WinXPanels,
   dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel,
   dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
   dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
@@ -28,7 +30,7 @@ uses
   cxDataControllerConditionalFormattingRulesManagerDialog, cxDBData,
   cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, cxLabel, cxCalendar, Vcl.Menus, cxButtons,
-  dxGDIPlusClasses, cxContainer;
+  dxGDIPlusClasses, cxContainer, cxCurrencyEdit;
 
 type
   TFrmMain = class(TForm)
@@ -66,11 +68,19 @@ type
     Bevel6: TBevel;
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
-    procedure FormActivate(Sender: TObject);
+    BtnVisualizar: TcxButton;
+    Bevel7: TBevel;
     procedure BtnSairClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure BtnExcluirClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
+    procedure FormActivate(Sender: TObject);
+    procedure BtnAlterarClick(Sender: TObject);
+    procedure BtnVisualizarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure DesabilitaButtons;
+    procedure HabilitaButtons;
   public
     { Public declarations }
     procedure HabilitaTela;
@@ -84,17 +94,56 @@ implementation
 
 {$R *.dfm}
 
-uses Form.Login, Storage.dm, Form.Pessoa;
+uses Form.Login, Storage, Form.Pessoa;
+
+procedure TFrmMain.BtnAlterarClick(Sender: TObject);
+begin
+
+  Self.DesabilitaButtons;
+
+  if not Assigned( frmPessoa  ) then
+  begin
+    frmPessoa := TfrmPessoa.Create(self);
+    FrmPessoa.Caption := 'Alteração Pessoa';
+    FrmPessoa.Operacao := Http.Put;
+    frmPessoa.ShowModal;
+  end;
+
+  Self.HabilitaButtons;
+
+end;
+
+procedure TFrmMain.BtnExcluirClick(Sender: TObject);
+var
+  LMsgErro : String;
+begin
+
+  Self.DesabilitaButtons;
+
+  if MessageDlg('Deseja realmente excluir a pessoa ' + dm.fdmPessoa.FieldByName('Nome').AsString + '?',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+  begin
+    LMsgErro := Http.TPessoa.Delete( dm.fdmPessoa.FieldByName('Id').AsLargeInt, dm.fdmPessoa );
+  end;
+
+  Self.HabilitaButtons;
+
+end;
 
 procedure TFrmMain.BtnNovoClick(Sender: TObject);
 begin
+
+  Self.DesabilitaButtons;
 
   if not Assigned( frmPessoa  ) then
   begin
     frmPessoa := TfrmPessoa.Create(self);
     FrmPessoa.Caption := 'Nova Pessoa';
+    FrmPessoa.Operacao := Http.Post;
     frmPessoa.ShowModal;
   end;
+
+  Self.HabilitaButtons;
 
 end;
 
@@ -106,6 +155,38 @@ begin
 
 end;
 
+procedure TFrmMain.BtnVisualizarClick(Sender: TObject);
+begin
+
+  Self.DesabilitaButtons;
+
+  if not Assigned( frmPessoa  ) then
+  begin
+    frmPessoa := TfrmPessoa.Create(self);
+    FrmPessoa.Caption := 'Alteração Pessoa';
+    FrmPessoa.Operacao := Http.Get;
+    frmPessoa.ShowModal;
+  end;
+
+  Self.HabilitaButtons;
+
+end;
+
+procedure TFrmMain.DataSource1DataChange(Sender: TObject; Field: TField);
+begin
+
+  Self.dxRibbonStatusBar1.Panels[1].Text := ' ' + dm.fdmPessoa.RecordCount.ToString + ' registro(s)';
+
+end;
+
+procedure TFrmMain.DesabilitaButtons;
+begin
+  Self.BtnNovo.Enabled    := False;
+  Self.BtnExcluir.Enabled := False;
+  Self.BtnAlterar.Enabled := False;
+  Self.BtnSair.Enabled    := False;
+end;
+
 procedure TFrmMain.DesabilitaTela;
 begin
 
@@ -113,10 +194,11 @@ begin
   Self.dxRibbonStatusBar1.Panels[0].Text := ' Usuário: Nenhum';
   Self.dxRibbonStatusBar1.Panels[1].Text := EmptyStr;
 
-  Self.BtnNovo.Enabled    := False;
-  Self.BtnExcluir.Enabled := False;
-  Self.BtnAlterar.Enabled := False;
-  Self.BtnSair.Enabled    := False;
+  Self.BtnNovo.Enabled       := False;
+  Self.BtnExcluir.Enabled    := False;
+  Self.BtnAlterar.Enabled    := False;
+  Self.BtnVisualizar.Enabled := False;
+  Self.BtnSair.Enabled       := False;
 
   if not Assigned(frmLogin  ) then
   begin
@@ -133,18 +215,26 @@ begin
 
 end;
 
-procedure TFrmMain.HabilitaTela;
+procedure TFrmMain.HabilitaButtons;
 begin
 
-  Self.BtnNovo.Enabled    := True;
-  Self.BtnExcluir.Enabled := True;
-  Self.BtnAlterar.Enabled := True;
+  Self.BtnNovo.Enabled       := True;
+  Self.BtnExcluir.Enabled    := dm.fdmPessoa.RecordCount > 0;
+  Self.BtnAlterar.Enabled    := dm.fdmPessoa.RecordCount > 0;
+  Self.BtnVisualizar.Enabled := dm.fdmPessoa.RecordCount > 0;
   Self.BtnSair.Enabled    := True;
+  Self.Refresh;
+
+end;
+
+procedure TFrmMain.HabilitaTela;
+begin
 
   Self.GridPessoa.Visible := True;
   Self.dxRibbonStatusBar1.Panels[0].Text := ' Usuário: Flavio';
   Self.dxRibbonStatusBar1.Panels[1].Text := ' ' + dm.fdmPessoa.RecordCount.ToString + ' registro(s)';
 
+  Self.HabilitaButtons;
 end;
 
 end.
